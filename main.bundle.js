@@ -17,56 +17,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/agua/agua.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/agua/agua.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n    <div class=\"row center-block\">\n      <img src=\"http://spura.com.mx/wp-content/uploads/2013/08/Gota_de_Agua.png\" width=\"250px\"> \n    </div>\n  </div>"
-
-/***/ }),
-
-/***/ "./src/app/agua/agua.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AguaComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var AguaComponent = /** @class */ (function () {
-    function AguaComponent() {
-    }
-    AguaComponent.prototype.ngOnInit = function () {
-    };
-    AguaComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-agua',
-            template: __webpack_require__("./src/app/agua/agua.component.html"),
-            styles: [__webpack_require__("./src/app/agua/agua.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], AguaComponent);
-    return AguaComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
@@ -77,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>    \n<!-- \n<div class=\"container\" style=\"margin-top: 60px\">\n\n<form>\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n    <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n  </div>\n  <div class=\"form-check\">\n    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n    <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n</form>\n</div> -->\n<!-- <div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n<app-fuego></app-fuego></div>\n<div class=\"col-md-6\">\n<app-agua></app-agua></div>\n</div>\n</div> -->\n\n<app-fuego></app-fuego>\n<div><app-footer></app-footer></div>\n\n"
+module.exports = "<div class=\"container-fluid\">\n<table class=\"table text-center\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Calle</th>\n      <th scope=\"col\">Codigo Postal</th>\n      <th scope=\"col\">Razon Social</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let post of posts; let i = index\">\n      <th scope=\"row\" >{{i + 1}}</th>\n      <td>{{post.calle}}</td>\n      <td >{{post.codigopostal}}</td> \n      <td>{{post.razonsocial}}</td>\n      <td><input (click)=\"ID(i)\" type=\"button\" value=\"\"></td>\n    </tr>\n  </tbody>\n</table>\n</div>"
 
 /***/ }),
 
@@ -87,23 +37,41 @@ module.exports = "<app-navbar></app-navbar>    \n<!-- \n<div class=\"container\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_servicio_gasolina_service__ = __webpack_require__("./src/app/servicios/servicio-gasolina.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.title = 'app';
+    function AppComponent(http, service) {
+        var _this = this;
+        this.http = http;
+        this.service = service;
+        this.posts = [];
+        this.service.PeticionGasolina().subscribe(function (res) {
+            _this.posts = res;
+        });
     }
+    AppComponent.prototype.ID = function (i) {
+        console.log(this.posts[i].id);
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1__servicios_servicio_gasolina_service__["a" /* ServicioGasolinaService */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -119,19 +87,15 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fuego_fuego_component__ = __webpack_require__("./src/app/fuego/fuego.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agua_agua_component__ = __webpack_require__("./src/app/agua/agua.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicios_servicio_gasolina_service__ = __webpack_require__("./src/app/servicios/servicio-gasolina.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("./src/app/app.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -143,17 +107,14 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_3__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__fuego_fuego_component__["a" /* FuegoComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__agua_agua_component__["a" /* AguaComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
             ],
             imports: [
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_2__servicios_servicio_gasolina_service__["a" /* ServicioGasolinaService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -163,76 +124,34 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/footer/footer.component.css":
-/***/ (function(module, exports) {
-
-module.exports = "#footer {\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    padding: 1rem;\r\n    background-color: #efefef;\r\n    text-align: center;\r\n  }"
-
-/***/ }),
-
-/***/ "./src/app/footer/footer.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div id='footer'>\n  <div class=\"row text-center\">\n  <p>Posted by: Hege Refsnes</p>\n</div>\n\n<div class=\"row text-center\">\n  <p>Contact information: <a href=\"mailto:someone@example.com\">\n  someone@example.com</a>.</p>\n</div>\n  </div> \n\n\n"
-
-/***/ }),
-
-/***/ "./src/app/footer/footer.component.ts":
+/***/ "./src/app/post.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var FooterComponent = /** @class */ (function () {
-    function FooterComponent() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Post; });
+var Post = /** @class */ (function () {
+    function Post(calle, codigopostal, razonsocial, id) {
+        this.calle = calle;
+        this.codigopostal = codigopostal;
+        this.razonsocial = razonsocial;
+        this.id = id;
     }
-    FooterComponent.prototype.ngOnInit = function () {
-    };
-    FooterComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-footer',
-            template: __webpack_require__("./src/app/footer/footer.component.html"),
-            styles: [__webpack_require__("./src/app/footer/footer.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FooterComponent);
-    return FooterComponent;
+    return Post;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/fuego/fuego.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/fuego/fuego.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<!-- <div class=\"container\">\n    <div class=\"row center-block\">\n      <img src=\"https://i.pinimg.com/236x/10/9e/11/109e11c6b044482c1e3a7726cf565ca5-icon-png-yl-oils.jpg\" width=\"250px\"> \n    </div>\n  </div> -->\n\n  <div class=\"container\">\n      <table class=\"table\">\n        <tr>\n          <th>Name</th>\n          <th>Age</th> \n          <th>Car</th>\n          <th>eliminar</th>\n        </tr>\n        <tr *ngFor=\"let obj of objects.data; let i = index\">\n          <td>{{obj.name}}</td>\n          <td>{{obj.age}}</td> \n          <td>{{obj.car}}</td>\n          <td><input (click)=\"index(i)\" type=\"button\" value=\"\"></td>\n        </tr>\n      </table>\n    </div>"
-
-/***/ }),
-
-/***/ "./src/app/fuego/fuego.component.ts":
+/***/ "./src/app/servicios/servicio-gasolina.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FuegoComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicioGasolinaService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__post__ = __webpack_require__("./src/app/post.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,101 +162,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var FuegoComponent = /** @class */ (function () {
-    function FuegoComponent() {
-        this.objects = {
-            data: [
-                {
-                    "name": "John",
-                    "age": 30,
-                    "car": "Ford",
-                    "id": 1
-                },
-                {
-                    "name": "Andre",
-                    "age": 23,
-                    "car": "VW",
-                    "id": 2
-                },
-                {
-                    "name": "Lisa",
-                    "age": 34,
-                    "car": "Ford",
-                    "id": 3
-                },
-                {
-                    "name": "Adrian",
-                    "age": 10,
-                    "car": "BMW",
-                    "id": 4
-                }
-            ]
-        };
+
+
+
+var ServicioGasolinaService = /** @class */ (function () {
+    function ServicioGasolinaService(http) {
+        this.http = http;
     }
-    FuegoComponent.prototype.index = function (i) {
-        console.log(this.objects.data[i].id);
+    ServicioGasolinaService.prototype.PeticionGasolina = function () {
+        var url = 'https://api.datos.gob.mx/v1/precio.gasolina.publico';
+        return this.http.get(url).map(function (res) { return res['results'].map(function (res) { return new __WEBPACK_IMPORTED_MODULE_2__post__["a" /* Post */](res['calle'], res['codigopostal'], res['razonsocial'], res['_id']); }); });
     };
-    FuegoComponent.prototype.ngOnInit = function () {
-    };
-    FuegoComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-fuego',
-            template: __webpack_require__("./src/app/fuego/fuego.component.html"),
-            styles: [__webpack_require__("./src/app/fuego/fuego.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FuegoComponent);
-    return FuegoComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/navbar/navbar.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/navbar/navbar.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">WebSiteName</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a href=\"#\">Home</a></li>\n      <li><a href=\"#\">Page 1</a></li>\n      <li><a href=\"#\">Page 2</a></li>\n    </ul>\n  </div>\n</nav>"
-
-/***/ }),
-
-/***/ "./src/app/navbar/navbar.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent() {
-    }
-    NavbarComponent.prototype.ngOnInit = function () {
-    };
-    NavbarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-navbar',
-            template: __webpack_require__("./src/app/navbar/navbar.component.html"),
-            styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], NavbarComponent);
-    return NavbarComponent;
+    ServicioGasolinaService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], ServicioGasolinaService);
+    return ServicioGasolinaService;
 }());
 
 
