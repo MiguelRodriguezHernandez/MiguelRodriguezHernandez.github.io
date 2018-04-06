@@ -289,14 +289,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".trans{\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block\">\n  <canvas baseChart\n          [data]=\"pieChartData\"\n          [labels]=\"pieChartLabels\"\n          [chartType]=\"pieChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n</div>\n <div align='center' *ngIf=\"pieChartData[0] < pieChartData[1]\">\n  Los Hombres ganan\n </div><div align='center' *ngIf=\"pieChartData[0] > pieChartData[1]\">\n   Las mujeres ganan\n </div> "
+module.exports = "\n\n<div class=\"container-fluid\">\n  <div class=\"row\" *ngIf=\"count\">\n    <div class=\"col-md-6\" >\n      <app-grafica90s></app-grafica90s>\n    </div>\n    <div class=\"col-md-6\">\n      <app-grafica2000s></app-grafica2000s>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"trans\">\n      <!-- <input type=\"button\" value=\"Oculta\" ng-click=\"Click_Button()\"> -->\n      <input (click)=\"Oculta(count)\" type=\"button\" value=\"Oculta\">\n    </div>\n  </div>\n</div> \n\n"
 
 /***/ }),
 
@@ -306,54 +306,29 @@ module.exports = "<div style=\"display: block\">\n  <canvas baseChart\n         
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_poblacion_mexico_service__ = __webpack_require__("./src/app/services/poblacion-mexico.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(poblacionService) {
-        var _this = this;
-        this.poblacionService = poblacionService;
-        this.pieChartLabels = ['Mujeres', 'Hombres'];
-        this.pieChartData = [0, 0];
-        this.pieChartType = 'pie';
-        this.lineChartLabels = ['1991'];
-        var pieChartData = [0, 0];
-        this.lineChartLabels.forEach(function (año, index) {
-            _this.poblacionService.getPoblaciondeMexicoPorAño(año).subscribe(function (res) {
-                pieChartData[0] += res['females'];
-                pieChartData[1] += res['males'];
-                _this.pieChartData = pieChartData;
-                console.log(_this.pieChartData);
-            });
-        });
+    function AppComponent() {
+        this.count = true;
     }
-    // events
-    AppComponent.prototype.chartClicked = function (e) {
-        console.log(e);
-    };
-    AppComponent.prototype.chartHovered = function (e) {
-        console.log(e);
+    AppComponent.prototype.Oculta = function (i) {
+        if (i)
+            this.count = false;
+        else
+            this.count = true;
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_poblacion_mexico_service__["a" /* PoblacionMexicoService */]])
+        })
     ], AppComponent);
     return AppComponent;
 }());
@@ -373,7 +348,10 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_charts__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_poblacion_mexico_service__ = __webpack_require__("./src/app/services/poblacion-mexico.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__grafica90s_grafica90s_component__ = __webpack_require__("./src/app/grafica90s/grafica90s.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__grafica2000s_grafica2000s_component__ = __webpack_require__("./src/app/grafica2000s/grafica2000s.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_servicio_poblacion90s_service__ = __webpack_require__("./src/app/services/servicio-poblacion90s.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_servicio_poblacion2000s_service__ = __webpack_require__("./src/app/services/servicio-poblacion2000s.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -386,20 +364,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__grafica2000s_grafica2000s_component__["a" /* Grafica2000sComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__grafica90s_grafica90s_component__["a" /* Grafica90sComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ng2_charts__["ChartsModule"],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_5__services_poblacion_mexico_service__["a" /* PoblacionMexicoService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__services_servicio_poblacion90s_service__["a" /* ServicioPoblacion90sService */], __WEBPACK_IMPORTED_MODULE_8__services_servicio_poblacion2000s_service__["a" /* ServicioPoblacion2000sService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -410,11 +393,151 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/poblacion-mexico.service.ts":
+/***/ "./src/app/grafica2000s/grafica2000s.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/grafica2000s/grafica2000s.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div style=\"display: block\">\n  <canvas baseChart\n          [data]=\"pieChartData\"\n          [labels]=\"pieChartLabels\"\n          [chartType]=\"pieChartType\"></canvas>\n</div>\n<div align='center' *ngIf=\"pieChartData[0] < pieChartData[1]\">\n  Años 2000: Mayoria de Hombres\n </div><div align='center' *ngIf=\"pieChartData[0] > pieChartData[1]\">\n  Años 2000: Mayoria de Mujeres\n </div> "
+
+/***/ }),
+
+/***/ "./src/app/grafica2000s/grafica2000s.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoblacionMexicoService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafica2000sComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_servicio_poblacion2000s_service__ = __webpack_require__("./src/app/services/servicio-poblacion2000s.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var Grafica2000sComponent = /** @class */ (function () {
+    function Grafica2000sComponent(poblacionService) {
+        var _this = this;
+        this.poblacionService = poblacionService;
+        this.pieChartLabels = ['Mujeres', 'Hombres'];
+        this.pieChartData = [0, 0];
+        this.pieChartType = 'pie';
+        this.lineChartLabels = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009'];
+        var pieChartData = [0, 0];
+        this.lineChartLabels.forEach(function (año, index) {
+            _this.poblacionService.getPoblaciondeMexicoPorAño(año).subscribe(function (res) {
+                pieChartData[0] += res['females'];
+                pieChartData[1] += res['males'];
+                _this.pieChartData = pieChartData;
+            });
+        });
+    }
+    Grafica2000sComponent.prototype.ngOnInit = function () {
+    };
+    Grafica2000sComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-grafica2000s',
+            template: __webpack_require__("./src/app/grafica2000s/grafica2000s.component.html"),
+            styles: [__webpack_require__("./src/app/grafica2000s/grafica2000s.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_servicio_poblacion2000s_service__["a" /* ServicioPoblacion2000sService */]])
+    ], Grafica2000sComponent);
+    return Grafica2000sComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/grafica90s/grafica90s.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/grafica90s/grafica90s.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div style=\"display: block\">\n  <canvas baseChart\n          [data]=\"pieChartData\"\n          [labels]=\"pieChartLabels\"\n          [chartType]=\"pieChartType\"></canvas>\n</div>\n<div align='center' *ngIf=\"pieChartData[0] < pieChartData[1]\">\n  Años 1990: Mayoria de Hombres\n </div><div align='center' *ngIf=\"pieChartData[0] > pieChartData[1]\">\n  Años 1990: Mayoria de Mujeres\n </div> "
+
+/***/ }),
+
+/***/ "./src/app/grafica90s/grafica90s.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafica90sComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_servicio_poblacion90s_service__ = __webpack_require__("./src/app/services/servicio-poblacion90s.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var Grafica90sComponent = /** @class */ (function () {
+    function Grafica90sComponent(poblacionService) {
+        var _this = this;
+        this.poblacionService = poblacionService;
+        this.pieChartLabels = ['Mujeres', 'Hombres'];
+        this.pieChartData = [0, 0];
+        this.pieChartType = 'pie';
+        this.lineChartLabels = ['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999'];
+        var pieChartData = [0, 0];
+        this.lineChartLabels.forEach(function (año, index) {
+            _this.poblacionService.getPoblaciondeMexicoPorAño(año).subscribe(function (res) {
+                pieChartData[0] += res['females'];
+                pieChartData[1] += res['males'];
+                _this.pieChartData = pieChartData;
+            });
+        });
+    }
+    Grafica90sComponent.prototype.ngOnInit = function () {
+    };
+    Grafica90sComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-grafica90s',
+            template: __webpack_require__("./src/app/grafica90s/grafica90s.component.html"),
+            styles: [__webpack_require__("./src/app/grafica90s/grafica90s.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_servicio_poblacion90s_service__["a" /* ServicioPoblacion90sService */]])
+    ], Grafica90sComponent);
+    return Grafica90sComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/servicio-poblacion2000s.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicioPoblacion2000sService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
@@ -432,20 +555,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PoblacionMexicoService = /** @class */ (function () {
-    function PoblacionMexicoService(http) {
+var ServicioPoblacion2000sService = /** @class */ (function () {
+    function ServicioPoblacion2000sService(http) {
         this.http = http;
     }
-    PoblacionMexicoService.prototype.getPoblaciondeMexicoPorAño = function (año) {
+    ServicioPoblacion2000sService.prototype.getPoblaciondeMexicoPorAño = function (año) {
         var url = "http://api.population.io:80/1.0/population/" + año + "/Mexico/21";
         console.log(url);
         return this.http.get(url).map(function (res) { return res[0]; });
     };
-    PoblacionMexicoService = __decorate([
+    ServicioPoblacion2000sService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
-    ], PoblacionMexicoService);
-    return PoblacionMexicoService;
+    ], ServicioPoblacion2000sService);
+    return ServicioPoblacion2000sService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/servicio-poblacion90s.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicioPoblacion90sService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ServicioPoblacion90sService = /** @class */ (function () {
+    function ServicioPoblacion90sService(http) {
+        this.http = http;
+    }
+    ServicioPoblacion90sService.prototype.getPoblaciondeMexicoPorAño = function (año) {
+        var url = "http://api.population.io:80/1.0/population/" + año + "/Mexico/21";
+        console.log(url);
+        return this.http.get(url).map(function (res) { return res[0]; });
+    };
+    ServicioPoblacion90sService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], ServicioPoblacion90sService);
+    return ServicioPoblacion90sService;
 }());
 
 
